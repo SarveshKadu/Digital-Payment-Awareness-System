@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fraud Radar — PayShield</title>
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="radar">
+
+<div id="navbar-root"></div>
+
+<section class="section container">
+  <div class="section-head">
+    <div class="eyebrow">⭐ INTERACTIVE TOOL</div>
+    <h2>Fraud Radar</h2>
+    <p>Select the details of a suspicious situation and see a fictional, educational risk score. This is not a real fraud-detection system.</p>
+  </div>
+
+  <div class="grid grid-2" style="align-items:start;">
+    <div class="card">
+      <h4>Situation details</h4>
+      <div class="form-group">
+        <label>Who contacted you?</label>
+        <select id="radarSender">
+          <option value="0">Someone I know well</option>
+          <option value="15">A verified official number/email</option>
+          <option value="30">An unknown number or email</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>How urgent was the request?</label>
+        <select id="radarUrgency">
+          <option value="0">No urgency, plenty of time</option>
+          <option value="10">Somewhat urgent</option>
+          <option value="25">Extremely urgent / immediate deadline</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Did it include a link or attachment?</label>
+        <select id="radarLink">
+          <option value="0">No link</option>
+          <option value="20">A link from a known official domain</option>
+          <option value="25">An unfamiliar or shortened link</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Did it request an OTP, PIN, or CVV?</label>
+        <select id="radarOtp">
+          <option value="0">No</option>
+          <option value="20">Yes</option>
+        </select>
+      </div>
+      <button class="btn btn-primary btn-block" id="radarCalcBtn">Calculate Risk Score</button>
+    </div>
+
+    <div class="card">
+      <div id="radarResult" class="risk-meter">
+        <p style="color:var(--text-faint);">Fill in the details and calculate to see your fictional risk score.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script src="../js/api.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/main.js"></script>
+<script src="../components/components.js"></script>
+<script src="../js/fraudRadar.js"></script>
+<script>PayShieldComponents.mount('radar');</script>
+</body>
+</html>

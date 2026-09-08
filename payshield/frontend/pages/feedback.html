@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Feedback &amp; Awareness Survey — PayShield</title>
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="feedback">
+
+<div id="navbar-root"></div>
+
+<section class="section container">
+  <div class="section-head">
+    <div class="eyebrow">TELL US MORE</div>
+    <h2>Feedback &amp; Awareness Survey</h2>
+    <p>How confident are you about making digital payments safely? Your response helps us improve PayShield.</p>
+  </div>
+
+  <div class="card" style="max-width:560px;">
+    <div id="feedbackSuccess" style="display:none;" class="center">
+      <div style="font-size:2rem;">✅</div>
+      <h3>Thank you!</h3>
+      <p>Your feedback has been recorded.</p>
+    </div>
+    <form id="feedbackForm">
+      <div class="form-group">
+        <label for="fName">Name</label>
+        <input type="text" id="fName" required />
+      </div>
+      <div class="form-group">
+        <label for="fEmail">Email</label>
+        <input type="email" id="fEmail" required />
+      </div>
+      <div class="form-group">
+        <label>How confident are you about making digital payments safely?</label>
+        <div class="decision-row" id="ratingRow">
+          <button type="button" class="decision-btn" data-rating="1">1</button>
+          <button type="button" class="decision-btn" data-rating="2">2</button>
+          <button type="button" class="decision-btn" data-rating="3">3</button>
+          <button type="button" class="decision-btn" data-rating="4">4</button>
+          <button type="button" class="decision-btn" data-rating="5">5</button>
+        </div>
+        <p class="form-hint">1 = Not confident at all · 5 = Extremely confident</p>
+      </div>
+      <div class="form-group">
+        <label for="fMessage">Additional feedback (optional)</label>
+        <textarea id="fMessage" rows="3"></textarea>
+      </div>
+      <div id="feedbackError" style="color:var(--danger); font-size:.85rem; margin-bottom:12px;"></div>
+      <button type="submit" class="btn btn-primary btn-block">Submit Feedback</button>
+    </form>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script src="../js/localData.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/main.js"></script>
+<script src="../components/components.js"></script>
+<script src="../js/feedback.js"></script>
+<script>PayShieldComponents.mount('feedback');</script>
+</body>
+</html>

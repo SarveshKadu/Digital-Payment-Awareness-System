@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PayShield — Think Before You Pay.</title>
+<meta name="description" content="PayShield teaches you to use digital payments safely and spot fraud before it happens." />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="home">
+
+<div id="navbar-root"></div>
+
+<header class="hero container">
+  <div>
+    <div class="eyebrow">DIGITAL PAYMENT AWARENESS &amp; SAFETY SYSTEM</div>
+    <h1 data-i18n="hero_headline">One Tap Can Save You. One Tap Can Scam You.</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Learn how digital payments work, recognize fraud before it happens, and become a smarter digital citizen.</p>
+    <div class="hero-cta">
+      <a href="learn.html" class="btn btn-primary" data-i18n="hero_cta1">Start Your Safety Journey</a>
+      <a href="quiz.html" class="btn btn-ghost" data-i18n="hero_cta2">Test Your Knowledge</a>
+    </div>
+    <div class="hero-badges">
+      <span class="chip"><span class="dot"></span> UPI Safety</span>
+      <span class="chip"><span class="dot"></span> QR Safety</span>
+      <span class="chip"><span class="dot"></span> OTP Protection</span>
+      <span class="chip"><span class="dot"></span> Fraud Detection</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="shield-stage">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="heroShieldGrad" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2F6FED"/><stop offset="1" stop-color="#22D3C6"/>
+          </linearGradient>
+          <path id="orbitPath" d="M 60 200 C 60 100, 340 100, 340 200 C 340 300, 60 300, 60 200 Z" fill="none"/>
+        </defs>
+        <circle cx="200" cy="200" r="185" fill="none" stroke="currentColor" stroke-opacity="0.08" stroke-width="1"/>
+        <path d="M200 60 L320 100 V190 C320 260 270 305 200 330 C130 305 80 260 80 190 V100 Z" fill="url(#heroShieldGrad)" opacity="0.16" stroke="url(#heroShieldGrad)" stroke-width="2"/>
+        <path d="M170 200 L190 220 L235 175" stroke="#22D3C6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <g opacity="0.9">
+          <circle r="7" fill="#2F6FED" class="pulse-dot" style="offset-path:path('M 60 200 C 60 100, 340 100, 340 200 C 340 300, 60 300, 60 200 Z');"/>
+        </g>
+        <text x="200" y="380" text-anchor="middle" fill="currentColor" opacity="0.4" font-size="12" font-family="Inter">Secure transaction path</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section class="section-tight container">
+  <div class="grid grid-4">
+    <div class="card card-hover center"><div style="font-size:1.8rem;">🔐</div><h4>Verified Learning</h4><p style="font-size:.85rem;">Beginner-friendly modules on every major payment method.</p></div>
+    <div class="card card-hover center"><div style="font-size:1.8rem;">🕵️</div><h4>Realistic Scenarios</h4><p style="font-size:.85rem;">Practice spotting real-world scam patterns safely.</p></div>
+    <div class="card card-hover center"><div style="font-size:1.8rem;">📊</div><h4>Progress Tracking</h4><p style="font-size:.85rem;">Quiz scores, badges and a personal safety score.</p></div>
+    <div class="card card-hover center"><div style="font-size:1.8rem;">🆘</div><h4>Emergency Guidance</h4><p style="font-size:.85rem;">Clear steps if you think you've been scammed.</p></div>
+  </div>
+</section>
+
+<!-- Digital Safety Score -->
+<section class="section container">
+  <div class="section-head">
+    <div class="eyebrow">PERSONALIZED</div>
+    <h2>Your Digital Safety Score</h2>
+    <p>Answer 5 quick questions and get a personalized safety score with strengths, gaps, and recommended modules.</p>
+  </div>
+  <div class="card" id="safetyScoreCard" style="max-width:720px;">
+    <div id="safetyScoreQuiz"></div>
+  </div>
+</section>
+
+<!-- Spot the Scam teaser -->
+<section class="section container" style="padding-top:0;">
+  <div class="section-head">
+    <div class="eyebrow">⭐ FLAGSHIP FEATURE</div>
+    <h2>Can You Spot the Scam?</h2>
+    <p>Real fraud messages, disguised as everyday notifications. Decide SAFE or SUSPICIOUS and learn why.</p>
+  </div>
+  <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+    <div style="max-width:480px;">
+      <p style="margin:0;">"Your ₹2,000 cashback is waiting. Click here to claim before it expires."</p>
+    </div>
+    <a href="scenarios.html" class="btn btn-primary">Try 10 Live Scenarios</a>
+  </div>
+</section>
+
+<!-- Feature grid -->
+<section class="section container" style="padding-top:0;">
+  <div class="grid grid-3">
+    <a href="simulator.html" class="card card-hover"><h4>💳 Payment Simulator</h4><p style="font-size:.88rem;">Walk through a fictional UPI payment and learn what to verify at each stage.</p></a>
+    <a href="fraud-radar.html" class="card card-hover"><h4>📡 Fraud Radar</h4><p style="font-size:.88rem;">Pick a suspicious situation and see a fictional risk score with reasons.</p></a>
+    <a href="safety-map.html" class="card card-hover"><h4>🗺️ Payment Safety Map</h4><p style="font-size:.88rem;">Explore the journey of a payment from sender to receiver.</p></a>
+    <a href="checklist.html" class="card card-hover"><h4>✅ Before You Pay Checklist</h4><p style="font-size:.88rem;">A quick checklist to run through before confirming any payment.</p></a>
+    <a href="learn.html" class="card card-hover"><h4>📘 Learn Digital Payments</h4><p style="font-size:.88rem;">UPI, cards, wallets, banking &amp; contactless — explained simply.</p></a>
+    <a href="myths.html" class="card card-hover"><h4>💡 Myths vs Facts</h4><p style="font-size:.88rem;">10+ common misconceptions about digital payment safety, corrected.</p></a>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script src="../js/api.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/main.js"></script>
+<script src="../components/components.js"></script>
+<script src="../js/safetyScore.js"></script>
+<script>PayShieldComponents.mount('home');</script>
+</body>
+</html>

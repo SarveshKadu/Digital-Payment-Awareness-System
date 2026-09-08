@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digital Payment Simulator — PayShield</title>
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="simulator">
+
+<div id="navbar-root"></div>
+
+<section class="section container">
+  <div class="section-head">
+    <div class="eyebrow">⭐ EDUCATIONAL SIMULATOR</div>
+    <h2>Digital Payment Simulator</h2>
+    <p>Walk through a fictional UPI-style payment, step by step. <strong>This is only a simulation — no real money is ever transferred and no real payment data is collected.</strong></p>
+  </div>
+
+  <div class="card simulator-stage">
+    <div class="sim-progress">
+      <span id="simBar1"></span><span id="simBar2"></span><span id="simBar3"></span><span id="simBar4"></span>
+    </div>
+
+    <div class="sim-step active" id="simStep1">
+      <h4>Step 1 — Enter payment details</h4>
+      <div class="form-group">
+        <label for="simReceiver">Receiver (name or UPI ID)</label>
+        <input type="text" id="simReceiver" placeholder="e.g. rahul.sharma@examplebank" />
+      </div>
+      <div class="form-group">
+        <label for="simAmount">Amount (₹)</label>
+        <input type="number" id="simAmount" placeholder="e.g. 500" min="1" />
+      </div>
+      <div class="form-group">
+        <label for="simPurpose">Purpose</label>
+        <input type="text" id="simPurpose" placeholder="e.g. Grocery payment" />
+      </div>
+      <button class="btn btn-primary btn-block" id="simToStep2">Continue</button>
+    </div>
+
+    <div class="sim-step" id="simStep2">
+      <h4>Step 2 — Receiver Verification</h4>
+      <div class="sim-warning">STOP! Did you verify the receiver's name matches who you intend to pay?</div>
+      <p>Receiver shown: <strong id="simReceiverShow"></strong></p>
+      <p style="font-size:.85rem;">In a real transaction, always check the name displayed by your payment app before continuing — never rely on the UPI ID alone.</p>
+      <div class="decision-row">
+        <button class="decision-btn safe" id="simVerifiedYes">Yes, I verified it</button>
+        <button class="decision-btn suspicious" id="simVerifiedNo">I'm not sure</button>
+      </div>
+    </div>
+
+    <div class="sim-step" id="simStep3">
+      <h4>Step 3 — Amount Confirmation</h4>
+      <p>You are about to pay <strong id="simAmountShow"></strong> for <strong id="simPurposeShow"></strong>.</p>
+      <div class="sim-warning">Double-check the amount. Scammers sometimes pre-fill a larger amount than expected on collect requests.</div>
+      <button class="btn btn-primary btn-block" id="simToStep4">Confirm Amount</button>
+    </div>
+
+    <div class="sim-step" id="simStep4">
+      <h4>Step 4 — Security Check</h4>
+      <ul style="color:var(--text-dim); font-size:.9rem; padding-left:18px;">
+        <li>✔ This is a request you initiated yourself</li>
+        <li>✔ You verified the receiver's name</li>
+        <li>✔ You are not being pressured or rushed</li>
+        <li>✔ You are not entering a PIN to "receive" money</li>
+      </ul>
+      <div class="sim-warning">Remember: your UPI PIN authorizes an outgoing payment. Never enter it to receive funds.</div>
+      <button class="btn btn-primary btn-block" id="simToComplete">Enter Simulated PIN &amp; Pay</button>
+    </div>
+
+    <div class="sim-step" id="simComplete">
+      <div class="center">
+        <div style="font-size:2.4rem;">✅</div>
+        <h3>Simulation Complete</h3>
+        <p><strong>No Real Money Was Transferred.</strong> This was a fictional walkthrough for learning purposes only.</p>
+        <div class="card" style="text-align:left; margin-top:16px;">
+          <p style="margin:0;font-size:.88rem;"><strong>Receiver:</strong> <span id="simSummaryReceiver"></span></p>
+          <p style="margin:0;font-size:.88rem;"><strong>Amount:</strong> ₹<span id="simSummaryAmount"></span></p>
+          <p style="margin:0;font-size:.88rem;"><strong>Purpose:</strong> <span id="simSummaryPurpose"></span></p>
+        </div>
+        <button class="btn btn-outline" id="simRestart" style="margin-top:18px;">Run Another Simulation</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script src="../js/api.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/main.js"></script>
+<script src="../components/components.js"></script>
+<script src="../js/simulator.js"></script>
+<script>PayShieldComponents.mount('simulator');</script>
+</body>
+</html>

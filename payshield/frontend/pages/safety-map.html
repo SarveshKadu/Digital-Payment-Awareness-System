@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Payment Safety Map — PayShield</title>
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="map">
+
+<div id="navbar-root"></div>
+
+<section class="section container">
+  <div class="section-head">
+    <div class="eyebrow">VISUAL JOURNEY</div>
+    <h2>Payment Safety Map</h2>
+    <p>Click each stage of a digital payment's journey to see what happens, what information is involved, and what to check.</p>
+  </div>
+
+  <div class="journey-map" id="journeyMap"></div>
+  <div class="card journey-detail" id="journeyDetail"></div>
+</section>
+
+<div id="footer-root"></div>
+
+<script src="../js/api.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/main.js"></script>
+<script src="../components/components.js"></script>
+<script src="../js/safetyMap.js"></script>
+<script>PayShieldComponents.mount('map');</script>
+</body>
+</html>

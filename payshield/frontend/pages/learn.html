@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Learn Digital Payments — PayShield</title>
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="learn">
+
+<div id="navbar-root"></div>
+
+<section class="section container">
+  <div class="section-head">
+    <div class="eyebrow">BEGINNER FRIENDLY</div>
+    <h2>Learn Digital Payments</h2>
+    <p>Tap a card to open a full explanation: what it is, how it works, advantages, risks and safety tips.</p>
+  </div>
+
+  <div id="learnGrid" class="grid grid-3"></div>
+</section>
+
+<div class="card" id="learnModalBackdrop" style="display:none; position:fixed; inset:0; z-index:200; background:rgba(3,6,14,0.7); border-radius:0; align-items:center; justify-content:center; padding:20px;">
+  <div class="card" id="learnModal" style="max-width:560px; width:100%; max-height:85vh; overflow-y:auto;"></div>
+</div>
+
+<div id="footer-root"></div>
+
+<script src="../js/localData.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/main.js"></script>
+<script src="../components/components.js"></script>
+<script src="../js/learn.js"></script>
+<script>PayShieldComponents.mount('learn');</script>
+</body>
+</html>

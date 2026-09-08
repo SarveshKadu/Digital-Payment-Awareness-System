@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Before You Pay Checklist — PayShield</title>
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="checklist">
+
+<div id="navbar-root"></div>
+
+<section class="section container">
+  <div class="section-head">
+    <div class="eyebrow">⭐ QUICK CHECK</div>
+    <h2>Before You Pay Checklist</h2>
+    <p>Run through this checklist before confirming any payment. Tap each item to mark it done.</p>
+  </div>
+
+  <div class="card" style="max-width:620px;">
+    <div id="checklistItems"></div>
+    <div class="divider"></div>
+    <div id="checklistResult" class="center" style="font-weight:700;"></div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script src="../js/api.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/main.js"></script>
+<script src="../components/components.js"></script>
+<script src="../js/checklist.js"></script>
+<script>PayShieldComponents.mount('checklist');</script>
+</body>
+</html>

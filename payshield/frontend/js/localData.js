@@ -1,0 +1,108 @@
+/**
+ * PayShield — Local demo content.
+ *
+ * This build ships without a live backend (see README: the full app expects
+ * a Node/Express + MongoDB API in `backend/`). So every page that would
+ * normally fetch from `/api/...` can fall back to this static data instead
+ * of showing a "Could not load" error. If a real backend is ever wired up,
+ * `api.js` still tries it first and only falls back to this file when that
+ * call fails.
+ */
+const PS_LOCAL_LEARNING = [
+  {
+    category: 'UPI',
+    title: 'UPI (Unified Payments Interface)',
+    description: 'Send and receive money instantly between bank accounts using just a UPI ID or QR code.',
+    howItWorks: 'You link your bank account to a UPI app with a UPI PIN. To pay, you enter the receiver\'s UPI ID (or scan their QR code) and confirm with your PIN — the money moves bank-to-bank in seconds.',
+    advantages: ['Instant, 24/7 transfers', 'No need to share bank/account details', 'Works across banks and apps', 'Free for personal use'],
+    risks: ['Fake "collect request" scams', 'QR codes that trick you into paying instead of receiving', 'PIN theft via phishing calls or apps'],
+    safetyTips: ['Never enter your UPI PIN to receive money — PIN is only for sending', 'Verify the payee name shown before confirming', 'Never share your UPI PIN, OTP, or app screen with anyone'],
+  },
+  {
+    category: 'QR Codes',
+    title: 'QR Code Payments',
+    description: 'Scan a merchant\'s QR code with a payment app to pay instantly without typing account details.',
+    howItWorks: 'The QR code encodes the receiver\'s UPI ID and merchant info. Scanning it opens your payment app pre-filled with the payee, and you just enter the amount and PIN.',
+    advantages: ['Fast and contactless', 'Reduces manual entry errors', 'Widely accepted, from street vendors to large stores'],
+    risks: ['Tampered or pasted-over QR stickers redirecting payment elsewhere', 'QR codes shared to "receive a refund" that actually charge you', 'Fake QR codes in unsolicited messages'],
+    safetyTips: ['Check the payee name matches the shop before paying', 'Be suspicious of a QR code sent to you to "get money"', 'Look for signs of a QR sticker being pasted over another one'],
+  },
+  {
+    category: 'Debit Cards',
+    title: 'Debit Cards',
+    description: 'A card linked directly to your bank account — payments are deducted immediately.',
+    howItWorks: 'Swiping, inserting, or tapping the card at a terminal (or entering the details online) authorizes an instant debit from your linked bank account, usually confirmed with a PIN or OTP.',
+    advantages: ['Spend only what you have — no debt', 'Widely accepted in stores and online', 'ATM withdrawals'],
+    risks: ['Card skimming at ATMs/POS machines', 'Card details phished online', 'Immediate loss of funds if compromised (unlike some credit card protections)'],
+    safetyTips: ['Cover the keypad when entering your PIN', 'Never share the CVV or OTP with anyone, including "bank staff"', 'Enable transaction alerts and set spend limits'],
+  },
+  {
+    category: 'Credit Cards',
+    title: 'Credit Cards',
+    description: 'Borrow from a credit limit set by the bank and repay later, often with rewards and purchase protection.',
+    howItWorks: 'The bank extends you a line of credit. Purchases are billed to that limit, and you repay the bank monthly — in full to avoid interest, or partially with interest charged on the remainder.',
+    advantages: ['Builds credit history', 'Purchase protection and rewards/cashback', 'Grace period before interest applies'],
+    risks: ['High interest if only minimum payment is made', 'Card-not-present fraud online', 'Phishing for card number/CVV/OTP'],
+    safetyTips: ['Never share your CVV or OTP over a call or message', 'Check statements regularly for unfamiliar charges', 'Use virtual card numbers for online shopping where available'],
+  },
+  {
+    category: 'Mobile Wallets',
+    title: 'Mobile Wallets',
+    description: 'An app-based balance you top up and spend from, often used for quick, small payments.',
+    howItWorks: 'You load money into the wallet from a bank account or card. Payments are deducted from that wallet balance instantly, without touching your bank account each time.',
+    advantages: ['Quick checkout for small payments', 'Often has built-in offers/cashback', 'Limits exposure of your main bank account'],
+    risks: ['Fake customer-care numbers asking for OTP to "fix" your wallet', 'Unauthorized top-ups if the app/device is compromised', 'Loss if the wallet isn\'t linked to fraud protection like a bank account might be'],
+    safetyTips: ['Set a strong app lock/PIN separate from your phone lock', 'Never share the OTP sent to top up or verify your wallet', 'Only download wallet apps from official app stores'],
+  },
+  {
+    category: 'Internet Banking',
+    title: 'Internet Banking',
+    description: 'Manage your account and make transfers directly through your bank\'s website or app.',
+    howItWorks: 'You log in with a customer ID and password (plus a second factor like OTP), then can view balances, transfer funds via NEFT/RTGS/IMPS, and manage standing instructions.',
+    advantages: ['Full control over your account, 24/7', 'Detailed statements and transaction history', 'Supports larger transfers than most wallets'],
+    risks: ['Phishing emails/SMS with fake "bank login" links', 'Keyloggers or malware capturing your password', 'Fake customer-care numbers found via search engines'],
+    safetyTips: ['Only type your bank\'s URL directly, never click links in unsolicited messages', 'Enable login alerts and use a unique, strong password', 'Never share your login password or OTP with anyone claiming to be "bank support"'],
+  },
+  {
+    category: 'Contactless Payments',
+    title: 'Contactless Payments (Tap & Pay)',
+    description: 'Tap a card, phone, or smartwatch on a terminal to pay instantly, without a PIN for small amounts.',
+    howItWorks: 'The card or device uses NFC to communicate with the terminal. For amounts under a set limit, no PIN is needed; larger amounts still require PIN confirmation.',
+    advantages: ['Very fast checkout', 'No need to hand over your card', 'Reduces contact/wait time at counters'],
+    risks: ['Theft/loss of a card enabling small unauthorized taps', 'Accidental double-taps or wrong-terminal charges'],
+    safetyTips: ['Set a low contactless limit if your bank allows it', 'Report a lost card immediately to block contactless taps', 'Check your statement for small unfamiliar charges'],
+  },
+];
+
+const PS_LOCAL_QUIZ_QUESTIONS = [
+  { _id: 'q1', category: 'UPI', question: 'You get a UPI notification to "approve" a request to receive ₹5,000. What should you do?', options: ['Enter my UPI PIN to approve it and get the money', 'Decline it — receiving money never requires entering a PIN', 'Call the sender first, then enter my PIN', 'Forward the request to a friend to check'], correctIndex: 1, explanation: 'Receiving money on UPI never requires a PIN. A "collect request" that asks for your PIN is designed to debit your account, not credit it.' },
+  { _id: 'q2', category: 'OTP', question: 'A caller says they are from your bank and asks for the OTP you just received to "verify your account". What do you do?', options: ['Share the OTP since they already know my card number', 'Refuse — banks never ask for your OTP over a call', 'Share only the last two digits', 'Ask them to call back later, then share it'], correctIndex: 1, explanation: 'Bank staff never need your OTP — it exists specifically so only you can authorize the transaction. Any request for it is a scam.' },
+  { _id: 'q3', category: 'QR Codes', question: 'Someone messages you claiming you won a contest and asks you to scan a QR code to "claim the prize money". What is the safest response?', options: ['Scan it and enter the amount they mention', 'Scan it but cancel before entering my PIN', 'Do not scan it — QR codes are for paying, not receiving prizes', 'Ask a friend to scan it for me'], correctIndex: 2, explanation: 'Scanning a QR code and entering your PIN authorizes a payment out of your account. A "prize" QR is a classic scam pattern.' },
+  { _id: 'q4', category: 'Passwords', question: 'Which is the safest way to manage your internet banking password?', options: ['Use the same password as your email for convenience', 'Write it on a sticky note near your computer', 'Use a unique, strong password and change it if you suspect compromise', 'Share it with one trusted family member for backup'], correctIndex: 2, explanation: 'A unique password limits damage if one account is breached, and no one else should need to know your banking password.' },
+  { _id: 'q5', category: 'Phishing', question: 'You receive an SMS with a link saying "Your account will be blocked, click here to verify KYC". What should you do?', options: ['Click the link immediately to avoid being blocked', 'Ignore/delete it and check your account by typing the bank\'s official website or app directly', 'Reply to the SMS asking for more details', 'Forward it to family to warn them, then click it'], correctIndex: 1, explanation: 'Urgency and a link are classic phishing signals. Always go to your bank through its official app or a manually typed URL, never via an SMS link.' },
+  { _id: 'q6', category: 'Cards', question: 'At an ATM, what is a good habit to prevent your PIN from being stolen?', options: ['Enter it quickly so no one can memorize it', 'Cover the keypad with your other hand while entering it', 'Say the digits aloud to double check', 'Ask the person behind you to confirm you typed it right'], correctIndex: 1, explanation: 'Covering the keypad blocks hidden cameras and shoulder-surfers from capturing your PIN.' },
+  { _id: 'q7', category: 'Wallets', question: 'A "customer care" number found via a search engine asks for your mobile wallet OTP to process a refund. Is this safe?', options: ['Yes, refunds always need an OTP', 'No — this is a common scam using fake support numbers', 'Only safe if the amount is small', 'Only safe if they call from a listed office number'], correctIndex: 1, explanation: 'Fraudsters place fake "customer care" numbers online. Genuine refunds are credited automatically and never require you to share an OTP.' },
+  { _id: 'q8', category: 'UPI', question: 'What does entering your UPI PIN actually do?', options: ['Confirms you are receiving money', 'Authorizes money to leave your account', 'Only verifies your identity, no money moves', 'Unlocks the app for the day'], correctIndex: 1, explanation: 'The UPI PIN is the final authorization step for a payment leaving your account — never for receiving funds.' },
+  { _id: 'q9', category: 'Apps', question: 'Where should you download a banking or payment app from?', options: ['A link shared in a WhatsApp forward', 'The official Google Play Store or Apple App Store, searching the bank\'s verified name', 'A third-party APK site for a "modded" version', 'A QR code from an unknown email'], correctIndex: 1, explanation: 'Official app stores verify publisher identity, reducing (though not eliminating) the risk of a fake or malicious app.' },
+  { _id: 'q10', category: 'Social Engineering', question: 'A "bank employee" asks you to install a remote screen-sharing app so they can "fix an issue" with your account. What should you do?', options: ['Install it, since they sound official', 'Refuse and hang up — legitimate banks do not ask you to install screen-sharing apps', 'Install it but close your banking app first', 'Ask a family member to install it instead'], correctIndex: 1, explanation: 'Screen-sharing requests are a well-known scam technique used to watch you enter credentials or OTPs live.' },
+  { _id: 'q11', category: 'Cards', question: 'You notice a small unfamiliar charge on your card statement. What is the best first step?', options: ['Ignore it since it is a small amount', 'Report it to your bank and consider blocking/reissuing the card', 'Wait a month to see if more charges appear', 'Share your card number with a "verification agent" who calls about it'], correctIndex: 1, explanation: 'Even small unauthorized charges can indicate a compromised card and should be reported promptly.' },
+  { _id: 'q12', category: 'Phishing', question: 'Which is a common sign of a phishing message?', options: ['It addresses you by your registered name', 'It creates urgency ("act now or your account will be blocked")', 'It comes from the bank\'s official app notification', 'It has no links at all'], correctIndex: 1, explanation: 'Urgency and fear are used to make people act before thinking. Genuine bank communication rarely threatens immediate account closure via SMS/email links.' },
+  { _id: 'q13', category: 'Public Wi-Fi', question: 'Is it safe to do internet banking over free public Wi-Fi?', options: ['Yes, as long as the site has "https"', 'It is safer to avoid banking on public/open Wi-Fi and use mobile data or a trusted network instead', 'Yes, public Wi-Fi is encrypted by default', 'Only safe at coffee shops, not airports'], correctIndex: 1, explanation: 'Open Wi-Fi networks can be intercepted more easily; mobile data or a trusted private network is safer for banking.' },
+  { _id: 'q14', category: 'Social Engineering', question: 'Someone claiming to be from a payment app support team messages you on social media offering help after you post a complaint publicly. What is the safest move?', options: ['DM them your registered mobile number and OTP', 'Ignore the DM and contact support only through the official app or verified website', 'Share your UPI PIN so they can check the issue', 'Follow their instructions to install a "support" app'], correctIndex: 1, explanation: 'Scammers monitor public complaints to pose as support agents. Always use the official in-app support channel instead.' },
+  { _id: 'q15', category: 'General Safety', question: 'What is the single most important rule to remember across all digital payments?', options: ['Faster payments are always safer', 'Never share your PIN, OTP, CVV, or password with anyone, for any reason', 'Only large transactions need caution', 'Payment apps are always 100% risk-free'], correctIndex: 1, explanation: 'This one rule prevents the vast majority of digital payment fraud — no legitimate person or institution ever needs these secrets from you.' },
+];
+
+const PS_LOCAL_SCENARIOS = [
+  { _id: 's1', category: 'UPI Scam', title: 'The "Wrong" Refund', message: 'Hi, I accidentally sent ₹8,000 to your UPI ID instead of my friend\'s. Can you please send it back? Here\'s a request link to make it easy for you: [link]', correctDecision: 'SUSPICIOUS', explanation: 'This is the classic "fake refund" scam. The "request link" is actually a payment request — clicking it and entering your PIN sends YOUR money to the scammer, not the other way around.', warningSigns: ['Unsolicited claim of a mistaken transfer', 'A "helpful" link instead of asking you to check your own balance first', 'Urgency to resolve it quickly'], safetyRecommendation: 'Never use a link someone else sends to "return" money. Check your own account for any unexpected credit, and only transfer back manually through your own app if one is confirmed.' },
+  { _id: 's2', category: 'Prize Scam', title: 'You\'ve Won a Lucky Draw!', message: 'Congratulations! Your number has been selected for our ₹50,000 festive lucky draw. Scan this QR code now to claim your prize before it expires in 1 hour!', correctDecision: 'SUSPICIOUS', explanation: 'Legitimate prizes are never claimed by scanning a QR code and entering a PIN — that action only sends money out, it can\'t receive a prize.', warningSigns: ['You never entered any such contest', 'A tight deadline pressuring quick action', 'QR code presented as the way to "receive" money'], safetyRecommendation: 'Delete the message. Genuine winnings are never collected by scanning a payment QR code.' },
+  { _id: 's3', category: 'Bank Verification', title: 'Urgent KYC Update Required', message: 'Dear Customer, your account KYC has expired and will be blocked in 24 hours. Click here to update immediately: bit.ly/kyc-verify-now', correctDecision: 'SUSPICIOUS', explanation: 'Banks direct KYC updates through their official app, branch, or verified website — never through a shortened link in an unsolicited SMS with a countdown threat.', warningSigns: ['Shortened, unfamiliar link', 'Threat of imminent account blocking', 'Generic "Dear Customer" greeting'], safetyRecommendation: 'Ignore the link. Open your bank\'s official app directly or visit a branch to check if any KYC action is genuinely needed.' },
+  { _id: 's4', category: 'Marketplace Payment', title: 'Buyer Wants to Pay via Advance QR', message: 'Hi, I want to buy your bicycle listed online. To confirm I\'m a serious buyer, please scan this QR code and I\'ll send the advance payment of ₹2,000 right away.', correctDecision: 'SUSPICIOUS', explanation: 'To RECEIVE money, you only ever need to share your UPI ID or your own receive-QR — you never scan someone else\'s QR code or enter a PIN to get paid.', warningSigns: ['Being asked to scan a code to "receive" payment', 'Pressure framed as proving buyer sincerity'], safetyRecommendation: 'Share your own UPI ID/QR to receive money, and never scan a code or enter your PIN for an incoming payment.' },
+  { _id: 's5', category: 'Family Emergency', title: 'Son\'s New Number, Urgent Need', message: 'Mom, this is my new number, my old phone broke. I urgently need ₹15,000 for a hospital bill, please transfer now, will explain later, can\'t talk right now.', correctDecision: 'SUSPICIOUS', explanation: 'This is a common "family emergency" impersonation scam relying on urgency and a plausible reason for not talking on a call.', warningSigns: ['Sudden new/unknown number', 'Urgent money request with no verification', 'Explicit avoidance of a phone call'], safetyRecommendation: 'Pause and call the family member on their known number before sending anything, even if the message sounds convincing.' },
+  { _id: 's6', category: 'Utility Bill', title: 'Routine Electricity Bill Reminder', message: 'Your monthly electricity bill of ₹1,240 is due on the 15th. Pay via the official MyElectricityBoard app or website to avoid late fees. This is an automated reminder; no action needed if already paid.', correctDecision: 'SAFE', explanation: 'This is a standard, non-urgent reminder that points to the official app rather than an unfamiliar link, and doesn\'t ask for any credentials.', warningSigns: [], safetyRecommendation: 'Still good practice: always open your bill through the official app/website rather than any link, even in a routine-looking message.' },
+  { _id: 's7', category: 'Job Offer Scam', title: 'Easy Part-Time Job, Pay Registration Fee', message: 'Congratulations, you\'re selected for a work-from-home data entry job paying ₹25,000/month! Just pay a refundable ₹499 registration fee via this UPI ID to get started today.', correctDecision: 'SUSPICIOUS', explanation: 'Genuine employers pay you — they don\'t ask you to pay a "refundable" fee upfront to start work. This is a common job-scam pattern.', warningSigns: ['Upfront payment required for a job', 'Unrealistically easy hiring with no interview', 'High pay for minimal, vague work'], safetyRecommendation: 'Never pay to receive a job offer. Research the company independently before sharing any money or personal details.' },
+  { _id: 's8', category: 'Bank Statement', title: 'Monthly Statement Notification', message: 'Your account statement for last month is now available in the app under Statements > Monthly Summary. Log in through the app as usual to view it.', correctDecision: 'SAFE', explanation: 'This message contains no links, no urgency, and simply points you to check the app yourself — a normal, low-risk notification pattern.', warningSigns: [], safetyRecommendation: 'Always navigate to statements by opening the app directly rather than tapping any link, just as a general habit.' },
+  { _id: 's9', category: 'Investment Scam', title: 'Guaranteed Double Returns in 7 Days', message: 'Join our exclusive trading group! Invest ₹10,000 today via UPI and get ₹20,000 back in just 7 days, guaranteed. Limited slots left, pay now to lock your spot.', correctDecision: 'SUSPICIOUS', explanation: '"Guaranteed" high returns in a short time frame is a hallmark of investment fraud — no legitimate investment can guarantee doubling your money in a week.', warningSigns: ['Guaranteed unrealistic returns', 'Artificial scarcity ("limited slots")', 'Payment requested directly via personal UPI ID, not a regulated platform'], safetyRecommendation: 'Only invest through SEBI-registered platforms, and treat any "guaranteed" quick-return offer as a red flag.' },
+  { _id: 's10', category: 'Delivery Scam', title: 'Pending Delivery, Small Fee Required', message: 'Your parcel is on hold due to an unpaid customs fee of ₹49. Pay now via this link to release your delivery: pay-delivery-fee.example', correctDecision: 'SUSPICIOUS', explanation: 'Small "fee" requests via unfamiliar links are used to harvest card/UPI details even when the amount seems too small to worry about, and can also be a pretext to capture your payment credentials for larger fraud later.', warningSigns: ['Unfamiliar/unofficial-looking link', 'Small amount designed to seem low-risk', 'No order/tracking details you can verify'], safetyRecommendation: 'Check delivery status only via the retailer\'s official app or courier website, and never pay unexpected "release fees" through a random link.' },
+];
+
+const PS_LOCAL_FEEDBACK_STORE_KEY = 'ps_local_feedback_demo';
